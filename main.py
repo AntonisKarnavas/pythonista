@@ -958,6 +958,4 @@ def level_test():
 
 
 if __name__ == "__main__":
-    # Secret key configuration for session management. It's imported from a secure source (credentials).
-    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.run()
