@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pythonista: Questions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <script>
+      Swal.fire({
+        icon: '{{category}}',
+        text: '{{message}}'
+      });
+    </script>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-lg  fixed-top " id="primary-nav">
+            <div class="container-fluid left">
+                <a class="navbar-brand" id="logo" href="#">
+                    <img src="{{ url_for('static', filename='images/logo-purple.png') }}" class="logo-icon" alt="">
+                    <span class="name-top"><b>Pythonista</b></span>
+                </a>
+                <button id="hamburger" class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span id="span-1"> </span>
+                    <span> </span>
+                    <span id="span-3"> </span>
+                </button>
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="index" class="nav-link nav-link-fade-up ">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="questions" class="nav-link nav-link-fade-up active">
+                                Add test question
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="students" class="nav-link nav-link-fade-up">
+                                Students
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="logout" class="nav-link nav-link-fade-up">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <form action="questions" id="form" class="form" method="post">
+
+
+        <label for="question">Question:</label>
+        <textarea type="text" id='question' name="question" cols="50" rows="10" required></textarea>
+
+        <br><br>    
+
+        <label for="test">Question for what test:</label>
+        <select name="test_name" id="test">
+            <option selected disabled>Select test</option>
+            {% for test in tests%}
+            <option value="{{test[0]}}">{{test[0].replace('_'," ").replace('Test test',' evaluation
+                test').replace('Chapter','Chapter ')}}</option>
+            {%endfor%}
+        </select>
+
+        <br><br>
+
+        <label for="chapter">Question from theory of chapter:</label>
+        <select name="chapter_name" id="chapter">
+            <option selected disabled>Select chapter</option>
+            {% for chapter in chapters%}
+            {% if 'Test' not in chapter[0]%}
+            <option value="{{chapter[0]}}">{{chapter[0].replace('_'," ").replace('Chapter','Chapter ')}}</option>
+            {%endif%}
+            {%endfor%}
+        </select>
+        <br><br>
+        <div id="subchapter">
+            <label for="subchapter1">From what subchapter:</label><br>
+            <select name="subchapter" id="subchapter1">
+                <option selected disabled>Select subchapter</option>
+            </select>
+            <br><br><br>
+        </div>
+        
+
+        <label for="type">Question Type:</label>
+        <select name="type" id="type">
+            <option selected disabled>Select type</option>
+            <option value="mul">Multiple choice</option>
+            <option value="rw">Right/Wrong</option>
+            <option value="gap">Gap fill</option>
+        </select>
+
+        <br><br>
+        <div id="multiple">
+            <label for="multiple1">Answer 1:</label><br>
+            <input type="text" id="multiple1" name="multiple1">
+            <br><br>
+            <label for="multiple2">Answer 2:</label><br>
+            <input type="text" id="multiple2" name="multiple2">
+            <br><br>
+            <label for="multiple3">Answer 3:</label><br>
+            <input type="text" id="multiple3" name="multiple3">
+            <br><br>
+            <label for="multiple4">Answer 4:</label><br>
+            <input type="text" id="multiple4" name="multiple4">
+            <br><br>
+            <label for="rightanswer">Right answer:</label><br>
+            <select id="rightanswer" name="right_answer">
+                <option selected disabled>Select right answer</option>
+            </select>
+        </div>
+        <div id="rw">
+            <label for="rightanswerrw">Right answer:</label><br>
+            <select id="rightanswerrw" name="right_answer">
+                <option selected disabled>Select right answer</option>
+                <option value="right">Right</option>
+                <option value="wrong">Wrong</option>
+            </select>
+        </div>
+        <div id="gap">
+            <label for="rightquestiongap">Gap fill:</label><br>
+            <input type="text" id='rightquestiongap' name="right_answer">
+        </div>
+        <br><br>
+
+        <button type="submit" id="submit">Submit new question!</button>
+        
+    </form>
+    
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='javascript/animate.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/questions.js') }}"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

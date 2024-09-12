@@ -1,0 +1,397 @@
+body {
+    padding-top: 10%;
+    background-image: url('../images/pat-back.svg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 7%;
+    background-color: #1F2029;
+}
+
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.btn {
+    position: fixed;
+    top: 105px;
+    left: -20px;
+    height: 45px;
+    width: 45px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: left 0.4s ease;
+    z-index: 15;
+}
+
+.btn.click {
+    left: 260px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 100px;
+    width: 250px;
+    height: 100%;
+    left: -250px;
+    background: #1b1b1b;
+    transition: left 0.4s ease;
+    z-index: 10;
+}
+
+.sidebar.show {
+    left: -10px;
+}
+
+.sidebar .header {
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background: #1e1e1e;
+    letter-spacing: 1px;
+}
+
+.ul {
+    background: #1b1b1b;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+}
+
+.li {
+    line-height: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.topics {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+.topics:hover {
+    color: lightgrey;
+}
+
+.li.active .topics {
+    color: #8167a9;
+    background: #1e1e1e;
+    border-left-color: #8167a9;
+}
+
+.topics:hover {
+    background: #1e1e1e;
+}
+
+.inner-ul {
+    position: static;
+    display: none;
+}
+
+.ul .feat-show.show {
+    display: block;
+}
+
+.inner-li {
+    line-height: 42px;
+    border-top: none;
+    border-left: 3px solid transparent;
+
+}
+
+.inner-a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 80px;
+    box-decoration-break: clone;
+}
+
+.image {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+.image.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+.image2 {
+    transform: rotate(90deg) translateY(-100%);
+    -webkit-transform: rotate(90deg) translateY(-100%);
+    -ms-transform: rotate(90deg) translateY(-100%);
+    background-color: #e6e6e6;
+}
+
+.image2.rotate {
+    transform: translateX(-20%) rotate(-90deg);
+}
+
+.image2:hover {
+    background-color: #929292;
+}
+
+.section-1 {
+    margin-top: 0%;
+    padding-left: 8%;
+    padding-right: 8%;
+    height: 200px;
+    z-index: -1;
+}
+
+#text {
+    display: none;
+}
+
+h1,h2 {
+    color: #e6e6e6;
+}
+
+.subheader {
+    line-height: 150%;
+    color: #a8a6a6;
+}
+
+h3 {
+    
+    color: #e6e6e6;
+
+}
+
+h5{
+    color: #e6e6e6;
+}
+
+p{
+    color: #e6e6e6;
+
+}
+
+hr.style3 {
+	border-top: 1px dashed #8c8b8b;
+    width:17%;
+}
+
+
+.first {
+    background-color: #1e1e1e;
+    padding: 10px 0px 10px 25px;
+    border-radius: 20px 20px 20px 20px;
+    
+    margin-top: 1%;
+}
+
+.imp{
+    color:#8167a9;
+}
+
+.rest {
+    background-color: #1e1e1e;
+    padding: 0px 0px 0px 25px;
+    border-radius: 0px 0px 20px 20px;
+    
+
+}
+
+.right {
+    float: right;
+    position: relative;
+    top: 25%;
+    transition: transform 0.4s;
+    padding: 5px;
+}
+
+.right.rotate {
+    margin-top: 1%;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.text {
+    color: #e6e6e6;
+    width: 100%;
+}
+
+hr {
+    margin-top: 0px;
+}
+
+
+
+.button {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #8167a9;
+    color: #8167a9;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: absolute;
+    bottom: 0;
+    right:150px;
+    margin-bottom: 2%;
+    margin-right: 1%;
+}
+.button:hover {
+    color: white;
+    background: #8167a9;
+}
+.button:active {
+    letter-spacing: 2px;
+}
+.button:after {
+    content: "Mark as completed";
+}
+.onclic {
+    width: 40px;
+    border-color: #bbb;
+    border-width: 3px;
+    font-size: 0;
+    border-left-color: #8167a9;
+    animation: rotating 2s 0.25s linear infinite;
+}
+.onclic:after {
+    content: "";
+}
+.onclic:hover {
+    color: #8167a9;
+    background: white;
+}
+.validate {
+    font-size: 13px;
+    color: white;
+    background: #8167a9;
+}
+.validate:after {
+    font-family: 'FontAwesome';
+    content: "\f00c";
+}
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+   }
+    to {
+        transform: rotate(360deg);
+   }
+}
+
+.disabled{
+    background-color: rgb(87, 85, 85);
+}
+
+.disable{
+    pointer-events: none;
+}
+
+
+pre[class*=language-] {
+    background: #1e1e1e;
+}
+
+.test-btn{
+
+    
+    display: none;
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #8167a9;
+    color: #8167a9;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 2%;
+    margin-right: 1%;
+
+
+}
+.test-btn:hover{
+    background-color: #8167a9;
+    color: #e6e6e6
+}
+.visible{
+    display: block !important;
+}
+
+@media (max-width: 1200px) {
+    .section-1{
+        margin-top: 5%;
+    }
+
+    .first{
+        margin-top: 3%;
+    }
+   
+  }
+  
+  
+  @media (max-width: 991px) {
+
+    .section-1{
+        margin-top: 10%;
+    }
+  }
+  
+  @media (max-width: 769px) {
+  
+    .section-1{
+        margin-top: 15%;
+    }
+  
+  }
+
+  
+  @media (max-width: 576px) {
+  
+
+    .section-1{
+        margin-top: 25%;
+    }
+    
+  }
+  
+  @media (max-width: 360px) {
+
+    .section-1{
+        margin-top: 30%;
+    }
+  }
+  

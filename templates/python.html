@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pythonista: Why Python?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/python.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+</head>
+
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-lg  fixed-top " id="primary-nav">
+            <div class="container-fluid left">
+                <a class="navbar-brand" id="logo" href="#">
+                    <img src="{{ url_for('static', filename='images/logo-purple.png') }}" class="logo-icon" alt="">
+                    <span class="name-top"><b>Pythonista</b></span>
+                </a>
+                <button id="hamburger" class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span id="span-1"> </span>
+                    <span> </span>
+                    <span id="span-3"> </span>
+                </button>
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="index" class="nav-link nav-link-fade-up ">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="chapters" class="nav-link nav-link-fade-up">
+                                Chapters
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tests" class="nav-link nav-link-fade-up">
+                                Tests
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="python" class="nav-link nav-link-fade-up active">
+                                Why Python? | Install
+                            </a>
+                        </li>
+                        {%if session['username']%}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profile
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="profile">View Profile</a>
+                                <a class="dropdown-item" href="logout">Logout</a>
+                            </div>
+                        </li>
+                        {%else%}
+                        <li class="nav-item"></li>
+                        <a href="login" class="nav-link nav-link-fade-up ">
+                            Login
+                        </a>
+                        </li>
+                        {%endif%}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="section-1">
+        <div class="container-fluid">
+            <div class="row center">
+                <div class="col-sm-12 col-md-10 col-lg-8">
+                    <h2 data-aos="zoom-in-down" data-aos-duration="1000">Python is a popular programming language. It
+                        was created by Guido van
+                        Rossum - the guy below, and
+                        released in 1991.</h2>
+                </div>
+            </div>
+            <br><br>
+            <div class="row center bottom">
+                <div class="col-6 ">
+                    <img data-aos="zoom-in-up" data-aos-duration="1000" class="image1"
+                        src="{{ url_for('static', filename='images/creator.jpg') }}" alt="">
+                </div>
+                <div class="col-6">
+                    <img data-aos="zoom-in-up" data-aos-duration="1000" class="image3"
+                        src="{{ url_for('static', filename='images/python.png') }}" alt="">
+                </div>
+            </div>
+            <br><br><br><br><br><br>
+            <div class="row center">
+                <div class=" col-md-12 col-lg-10 col-xl-8 center-2">
+                    <h2 data-aos="zoom-in-down" data-aos-duration="1000">But... why python and what is its usage?</h2>
+                </div>
+            </div>
+            <div class="row center">
+                <div class="col-md-12 col-lg-10 col-xl-8 center-2">
+                    <img data-aos="zoom-in-up" data-aos-duration="1000" class="image2"
+                        src="{{ url_for('static', filename='images/think.gif') }}" alt="">
+                </div>
+            </div>
+            <br><br><br>
+            <div class="row center">
+                <div data-aos="fade-right" class="col-12 col-md-10 col-xl-6">
+                    <div class="flip">
+                        <div class="front" style="background-image: url(../static/images/web.gif); opacity: 0.5;">
+                            <h1 class="text-front text-front-line">Web Development</hi>
+                        </div>
+                        <div class="back">
+                            <p class="text-back">Python is often used to develop the back end of a website or
+                                application—the parts that a user
+                                doesn’t see. Python’s role in web development can include sending data to and from
+                                servers,
+                                processing data and communicating with databases, URL routing, and ensuring security.
+                                Python
+                                offers several frameworks for web development. Commonly used ones include Django and
+                                Flask.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="col-12 col-md-10 col-xl-6">
+                    <div class="flip">
+                        <div class="front" style="background-image: url(../static/images/data.gif); opacity: 0.5;">
+                            <h1 class="text-front">Data Analytics and Machine Learning</hi>
+                        </div>
+                        <div class="back">
+                            <p class="text-back-2">Python has become a staple in data science, allowing data analysts
+                                and
+                                other professionals to use the language to conduct complex statistical calculations,
+                                create data visualizations, build machine learning algorithms, manipulate and analyze
+                                data, and complete other data-related tasks.
+
+                                Python can build a wide range of different data visualizations, like line and bar
+                                graphs, pie charts, histograms, and 3D plots. Python also has a number of libraries that
+                                enable coders to write programs for data analysis and machine learning more quickly and
+                                efficiently, like TensorFlow and Keras.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row center">
+                <div data-aos="fade-right" class="col-12 col-md-10 col-xl-6">
+                    <div class="flip">
+                        <div class="front"
+                            style="background-image: url(../static/images/automation.gif); opacity: 0.5;background-color: white;">
+                            <h1 class="text-front text-front-line">Automation or scripting</hi>
+                        </div>
+                        <div class="back">
+                            <p class="text-back-3">If you find yourself performing a task over and over again, you could
+                                work more efficiently by automating it with Python. Writing code used to build these
+                                automated processes is called scripting. In the coding world, automation can be used to
+                                check for errors across multiple files, convert files, execute simple math, and remove
+                                duplicates in data.
+
+                                Python can even be used by relative beginners to automate simple tasks on the
+                                computer—such as renaming files, finding and downloading online content or sending
+                                emails or texts at desired intervals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="col-12 col-md-10 col-xl-6">
+                    <div class="flip">
+                        <div class="front" style="background-image: url(../static/images/software.gif); opacity: 0.5;">
+                            <h1 class="text-front text-front-line">Software testing and prototyping</hi>
+                        </div>
+                        <div class="back">
+                            <p class="text-back-4">In software development, Python can aid in tasks like build control,
+                                bug tracking, and testing. With Python, software developers can automate testing for new
+                                products or features. Some Python tools used for software testing include Green and
+                                Requestium.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br><br><br>
+            <div class="row">
+                <div class="col-12 center-2">
+                    <h2 data-aos="zoom-in-down" data-aos-duration="1000"><u>Tell me how to install it already!</u></h2>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="row center">
+                <div class="col-md-10 col-12 center-2 " data-aos="fade-right" data-aos-duration="1000">
+                    <h3> <strong>Step 1</strong> − Select Version of Python to Install</h3>
+                    <br>
+                    <p>
+                        Python has various versions available with differences between the syntax and working of
+                        different versions of the language. We need to choose the version which we want to use or
+                        need.
+                        There are different versions of Python 2 and Python 3 available</p>
+                </div>
+            </div>
+            <br><br>
+            <div class="row center">
+                <div class="col-md-10 col-12 center-2 " data-aos="fade-left" data-aos-duration="1000">
+                    <h3> <strong>Step 2</strong> − Download Python Executable Installer</h3>
+                    <br>
+                    <p>
+                        On the web browser, in the official site of python (www.python.org), move to the Download for
+                        Windows section.
+
+                        All the available versions of Python will be listed. Select the version required by you and
+                        click on Download. Let suppose, we chose the Python 3.9.1 version.</p>
+                    <img class="center-image" src="{{ url_for('static', filename='images/step2.jpg') }}" alt="">
+                    <br>
+                    <p>On clicking download, various available executable installers shall be visible with different
+                        operating system specifications. Choose the installer which suits your system operating system
+                        and download the instlaller. Let suppose, we select the Windows installer(64 bits).
+
+                        The download size is less than 30MB.</p>
+                    <img class="center-image" src="{{ url_for('static', filename='images/step22.jpg') }}" alt="">
+                </div>
+            </div>
+            <br><br><br><br>
+            <div class="row center">
+                <div class="col-md-10 col-12 center-2 " data-aos="fade-right" data-aos-duration="1000">
+                    <h3><strong>Step 3</strong> − Run Executable Installer</h3>
+                    <br>
+                    <p>
+                        We downloaded the Python 3.9.1 Windows 64 bit installer.
+
+                        Run the installer. Make sure to select both the checkboxes at the bottom and then click Install
+                        New.</p>
+                    <img class="center-image" src="{{ url_for('static', filename='images/step3.jpg') }}" alt="">
+                    <br>
+                    <p>On clicking the Install Now, The installation process starts.</p>
+                    <img class="center-image" src="{{ url_for('static', filename='images/step33.jpg') }}" alt="">
+                    <br>
+                    <p>The installation process will take few minutes to complete and once the installation is
+                        successful, the following screen is displayed.</p>
+                    <img class="center-image" src="{{ url_for('static', filename='images/step333.jpg') }}" alt="">
+
+                </div>
+            </div>
+            <br><br><br><br>
+            <div class="row center">
+                <div class="col-md-10 col-12 " data-aos="fade-left" data-aos-duration="1000">
+                    <h3 class="center-2"><strong>Step 4</strong> − Verify Python is installed on Windows</h3>
+                    <br>
+                    <p class="step-4">
+                        To ensure if Python is succesfully installed on your system. Follow the given steps −</p>
+                    <ul class="step-41">
+                        <li>Open the command prompt.</li>
+                        <li>Type ‘python’ and press enter.</li>
+                        <li>The version of the python which you have installed will be displayed if the python is
+                            successfully installed on your windows.</li>
+                    </ul>
+                    <img class="center-image" src="{{ url_for('static', filename='images/step4.jpg') }}" alt="">
+                </div>
+            </div>
+            <br><br><br><br>
+            <div class="row center">
+                <div class="col-md-10 col-12" data-aos="fade-right" data-aos-duration="1000">
+                    <h3 class="center-2"><strong>Step 5</strong> − Verify Pip was installed</h3>
+                    <br>
+                    <p class="step-4">
+                        Pip is a powerful package management system for Python software packages. Thus, make sure that
+                        you have it installed.
+
+                        To verify if pip was installed, follow the given steps −</p>
+                    <ul class="step-41">
+                        <li>Open the command prompt.</li>
+                        <li>Enter pip –V to check if pip was installed.</li>
+                        <li>The following output appears if pip is installed successfully.</li>
+                    </ul>
+                    <img class="center-image" src="{{ url_for('static', filename='images/step5.jpg') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </section><br><br><br><br>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='javascript/animate.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript/python.js') }}"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

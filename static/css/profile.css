@@ -1,0 +1,52 @@
+body {
+    padding-top: 10%;
+    background-image: url('../images/pat-back.svg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 7%;
+    background-color: #1F2029;
+}
+
+h1{
+    color: aliceblue;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.tables{
+    margin-top: 0%;
+}
+@media (max-width: 1200px) {
+    .tables{
+        margin-top: 5%;
+    }
+   
+  }
+  
+  
+  @media (max-width: 991px) {
+   .tables{
+       margin-top: 7%;
+   }
+  }
+  
+  @media (max-width: 769px) {
+  
+    .tables{
+        margin-top: 10%;
+    }
+  }
+
+  
+  @media (max-width: 576px) {
+  
+    .tables{
+        margin-top: 12%;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .tables{
+        margin-top: 15%;
+    }
+  }

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Pythonista: Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/back-to-top-btn.css') }}">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+  <script>
+    Swal.fire({
+      icon: '{{category}}',
+      text: '{{message}}'
+    });
+  </script>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+  <script>
+    if (localStorage['message']) {
+      Swal.fire({
+        icon: 'success',
+        text: localStorage['message']
+      });
+      localStorage.removeItem('message')
+    }
+  </script>
+
+  {% if session['teacher']%}
+  <header>
+    <nav class="navbar navbar-dark navbar-expand-lg  fixed-top " id="primary-nav">
+      <div class="container-fluid left" >
+        <a class="navbar-brand" id="logo" href="#">
+         e
+          <span class="name-top"><b>Pythonista</b></span>
+        </a>
+        <button id="hamburger" class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+          data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span id="span-1"> </span>
+          <span> </span>
+          <span id="span-3"> </span>
+        </button>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="index" class="nav-link nav-link-fade-up active">
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="questions" class="nav-link nav-link-fade-up">
+                Add test question
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="students" class="nav-link nav-link-fade-up">
+                Students
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="logout" class="nav-link nav-link-fade-up">
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  {%else%}
+  <header>
+    <nav class="navbar navbar-dark navbar-expand-lg  fixed-top " id="primary-nav">
+      <div class="container-fluid left " >
+        <a class="navbar-brand" id="logo" href="#">
+          <img src="{{ url_for('static', filename='images/logo-purple.png') }}" class="logo-icon" alt="">
+          <span class="name-top"><b>Pythonista</b></span>
+        </a>
+        <button id="hamburger" class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+          data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span id="span-1"> </span>
+          <span> </span>
+          <span id="span-3"> </span>
+        </button>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="index" class="nav-link nav-link-fade-up active">
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="chapters" class="nav-link nav-link-fade-up">
+                Chapters
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="tests" class="nav-link nav-link-fade-up">
+                Tests
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="python" class="nav-link nav-link-fade-up">
+                Why Python? | Install
+              </a>
+            </li>
+            {%if session['username']%}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Profile
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="profile">View Profile</a>
+                <a class="dropdown-item" href="logout">Logout</a>
+              </div>
+            </li>
+            {%else%}
+            <li class="nav-item"></li>
+            <a href="login" class="nav-link nav-link-fade-up ">
+              Login
+            </a>
+            </li>
+            {%endif%}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  {%endif%}
+  <!-- Back to top button -->
+  <a id="button"><i><img src="{{ url_for('static', filename='images/up-black.png') }}" class="up-btn"></i></a>
+  <section class="section-1">
+    <div class="parallax-wrap animate__animated animate__fadeIn animate__delay-2s" id="last">
+      <span value="15"></span>
+      <span value="5"></span>
+      <span value="10"></span>
+      <span value="10"></span>
+      <span value="15"></span>
+    </div>
+    <div>
+      <div class="container-fluid animate__animated animate__backInLeft" style=" overflow: hidden;"  id="first">
+        <div class="row">
+          <div class="col-sm-1 col-0">
+          </div>
+          <div class="col-sm-8 col-10">
+            <p class="header">A New Way to Learn</p>
+            <p class="subtext  underline"><span class="name">Pythonista</span> is the best platform to help you enhance
+              your skills and expand your knowledge on the most popular coding language... Python!</p>
+            <button class="readmore" onclick="window.location='chapters'">Start Learning!</button>
+
+          </div>
+          <div class="col-sm-3 col-2">
+          </div>
+        </div>
+      </div>
+      <img class="img1 animate__animated animate__backInLeft animate__delay-1s"
+        src="{{ url_for('static', filename='images/kids.png') }}" id="second" class="img1" />
+    </div>
+  </section>
+
+
+  <section class="section-2">
+    <img src="{{ url_for('static', filename='images/mountain.png') }}" class='mountain' alt="">
+    <h3 class="img-txt" data-aos="zoom-in-down" data-aos-duration="1000">Learn Anywhere...</h3>
+  </section>
+
+
+  <section class="section-3">
+    <div class="container-fluid mx-auto" style=" overflow: hidden;">
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right" data-aos-duration="1000">
+          <div class="card">
+            <div class="card_image"> <img src="{{ url_for('static', filename='images/learn.gif') }}" /> </div>
+          </div>
+          <h3 class='card-header'>Take on Courses</h3>
+          <p class='card-text'>You can challenge yourself by browsing through our multiple chapters, each one of them
+            teaching you a completely new aspect of <u>Python</u>!</p>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-duration="1000">
+          <div class="card">
+            <div class="card_image"> <img src="{{ url_for('static', filename='images/test.gif') }}" /> </div>
+          </div>
+          <h3 class='card-header'>Solve Quizzes</h3>
+          <p class='card-text'>Test your knowledge by taking on various tests and quizzes at the end of each chapter and collect as many badges as you can...
+           </p>
+        </div>
+        <div class="col-lg-4" data-aos="fade-left" data-aos-duration="1000">
+          <div class="card">
+            <div class="card_image"> <img src="{{ url_for('static', filename='images/stats.gif') }}" /> </div>
+          </div>
+          <h3 class='card-header'>Monitor your Stats</h3>
+          <p class='card-text'>Check and understand the progress you've made in the course, inspect and analyze your
+            statistics on tests so far and you be the judge! </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section-4">
+    <h3 class="header-anytime" data-aos="zoom-in-down" data-aos-duration="1000">Learn Anytime...</h3>
+    <div class="container-fluid" style=" overflow: hidden;">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 day ">
+          <div class="center" data-aos="fade-down-right" data-aos-duration="1000">
+            <p class="text-anytime-day">During the day...</p>
+            <img class="season-img" src="{{ url_for('static', filename='images/day.gif') }}" alt="">
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 night ">
+          <div class="center" data-aos="fade-down-left" data-aos-duration="1000">
+            <p class="text-anytime-night">or during the night!</p>
+            <img class="season-img" src="{{ url_for('static', filename='images/night.gif') }}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-5">
+    <p class="footer-header">Through our platform acquire the expertise to land the job of your dreams in a company
+      like...</p>
+    <div class="container-fluid" style=" overflow: hidden;">
+      <div class="row center">
+        <div class="col-8 mx-auto">
+          <img data-aos="fade-down-right" data-aos-duration="1100" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 0.svg')}}" alt="">
+          <img data-aos="fade-down-right" data-aos-duration="1200" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 1.svg')}}" alt="">
+          <img data-aos="fade-down" data-aos-duration="1300" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 2.svg')}}" alt="">
+          <img data-aos="fade-down" data-aos-duration="1400" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 3.svg')}}" alt="">
+          <img data-aos="fade-down" data-aos-duration="1500" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 4.png')}}" alt="">
+          <img data-aos="fade-down" data-aos-duration="1600" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 5.png')}}" alt="">
+          <img data-aos="fade-down" data-aos-duration="1700" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 6.svg')}}" alt="">
+          <img data-aos="fade-down-left" data-aos-duration="1800" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 7.svg')}}" alt="">
+          <img data-aos="fade-down-left" data-aos-duration="1900" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 8.svg')}}" alt="">
+          <img data-aos="fade-up-right" data-aos-duration="1100" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 9.svg')}}" alt="">
+          <img data-aos="fade-up-right" data-aos-duration="1200" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 10.svg')}}" alt="">
+          <img data-aos="fade-up" data-aos-duration="1300" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 11.svg')}}" alt="">
+          <img data-aos="fade-up" data-aos-duration="1400" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 12.svg')}}" alt="">
+          <img data-aos="fade-up" data-aos-duration="1500" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 13.svg')}}" alt="">
+          <img data-aos="fade-up" data-aos-duration="1600" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 14.svg')}}" alt="">
+          <img data-aos="fade-up" data-aos-duration="1700" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 15.svg')}}" alt="">
+          <img data-aos="fade-up-left" data-aos-duration="1800" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 16.svg')}}" alt="">
+          <img data-aos="fade-up-left" data-aos-duration="1900" class="company-logo"
+            src="{{ url_for('static', filename='images/companies/asset 17.svg')}}" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-6">
+    <p class="footer">Copyright © 2022 Pythonista</p>
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascript/animate.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascript/navbar.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascript/back-to-top-btn.js') }}"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
