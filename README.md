@@ -44,4 +44,3 @@ The website is live and can be accessed here: [Python Learning Platform](https:/
 - **Frontend**: HTML, CSS, JavaScript (JQuery)
 - **Backend**: Flask (Python)
 - **Database**: MySQL
-- **Authentication**: Flask-Login
