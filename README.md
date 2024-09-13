@@ -1,7 +1,11 @@
 # Pythonista: Python Learning Platform
 
 Welcome to the Python Learning Platform, a web application designed to help students improve their Python programming skills through a structured learning path. The platform provides resources at three difficulty levels: Beginner, Advanced, and Expert, with a progression system that includes tests, badges, and statistics tracking.
+## Live Demo
 
+The website is live and can be accessed here: [Python Learning Platform](https://antoniskarnavas.pythonanywhere.com/index).
+
+![Screenshot of Python Learning Platform](static/images/demo.png)
 ## Features
 
 ### 1. Learning Material
