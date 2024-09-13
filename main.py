@@ -38,7 +38,7 @@ mysql.init_app(app)
 @app.before_request
 def make_session_permanent():
     """Sets session to be permanent and configures the lifetime to 10 minutes."""
-    session.permanent = True
+    session.modified = True
     app.permanent_session_lifetime = timedelta(minutes=10)
 
 
