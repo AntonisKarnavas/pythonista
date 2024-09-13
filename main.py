@@ -29,7 +29,7 @@ app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 mysql = MySQL()
 app.config["MYSQL_DATABASE_USER"] = os.getenv("DB_USERNAME")
 app.config["MYSQL_DATABASE_PASSWORD"] = os.getenv("DB_PASSWORD")
-app.config["MYSQL_DATABASE_DB"] = "pythonista"
+app.config["MYSQL_DATABASE_DB"] = "antoniskarnavas$pythonista"
 app.config["MYSQL_DATABASE_HOST"] = "antoniskarnavas.mysql.pythonanywhere-services.com"
 mysql.init_app(app)
 
