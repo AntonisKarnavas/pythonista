@@ -956,6 +956,3 @@ def level_test():
             return redirect(url_for("login"))
     return jsonify({"error": "Invalid request method."}), 405
 
-
-if __name__ == "__main__":
-    app.run()
